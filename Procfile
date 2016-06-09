@@ -1,2 +1,2 @@
-web: gunicorn djangochat/wsgi
+web: gunicorn djangochat.wsgi:application
 worker: python worker.py
