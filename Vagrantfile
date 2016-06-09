@@ -15,11 +15,12 @@ Vagrant.configure(2) do |config|
     sudo apt-get install -y python-pip python-dev
     sudo apt-get install libxml2-dev
     sudo apt-get install libxslt-dev
+    sudo apt-get install postgresql
     sudo pip install virtualenv
     cd /vagrant
     virtualenv env
     source env/bin/activate
-    pip install -r requirements/vm.txt
+    pip install -r requirements.txt
 
     echo 'cd \\vagrant' >> ~/.bashrc
     echo 'source env/bin/activate' >> ~/.bashrc
