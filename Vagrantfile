@@ -13,6 +13,8 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", inline: <<-SHELL
     sudo apt-get update
     sudo apt-get install -y python-pip python-dev
+    sudo apt-get install libxml2-dev
+    sudo apt-get install libxslt-dev
     sudo pip install virtualenv
     cd /vagrant
     virtualenv env
