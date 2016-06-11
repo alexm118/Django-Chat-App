@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<h2 class="col s8 offset-s2">{{ welcome }}</h2>
+		</div>
+		<div class="row">
+			<div class="col s2 offset-s3">
+				<a href="/login/" class="btn pink darken-1">Login</a>
+			</div>
+			<div class="col s2 offset-s1">
+				<a href="/login/register/" class="btn pink darken-1">Register</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}
