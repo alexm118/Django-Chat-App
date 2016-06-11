@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<div class="container">
+		<h2>{{ greeting }}</h2>
+		<form method='POST'>
+			{% csrf_token %}
+			<div class="row">
+				<div class="col s2 offset-s1">
+				Username: {{ form.username }} {{ form.username.errors }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s2 offset-s1">
+					Password: {{ form.password }} {{ form.password.erros }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s2 offset-s1">
+					<button type="submit" class="btn pink darken-1">Login</button>
+				</div>
+			</div>
+		</form>
+	</div>
+{% endblock %}

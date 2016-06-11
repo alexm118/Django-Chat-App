@@ -13,14 +13,11 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", inline: <<-SHELL
     sudo apt-get update
     sudo apt-get install -y python-pip python-dev
-    sudo apt-get install libxml2-dev
-    sudo apt-get install libxslt-dev
-    sudo apt-get install postgresql
     sudo pip install virtualenv
     cd /vagrant
-    virtualenv env
+    virtualenv env --always-copy
     source env/bin/activate
-    pip install -r requirements.txt
+    pip install -r requirements/vm.txt
 
     echo 'cd \\vagrant' >> ~/.bashrc
     echo 'source env/bin/activate' >> ~/.bashrc

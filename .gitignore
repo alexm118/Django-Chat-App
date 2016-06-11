@@ -1,5 +1,5 @@
-env/*
-.vagrant/*
+env
+.vagrant
 db.*
 local.py
 *.pyc
