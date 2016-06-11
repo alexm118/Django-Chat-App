@@ -16,10 +16,13 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from . import views
+from users.views import profile, update_profile
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^hello/', include('hello.urls')),
     url(r'^login/', include('users.urls')),
     url(r'^$', views.home, name='home'),
+    url(r'^profile/update/', update_profile, name='update_profile' ),
+    url(r'^profile/', profile, name='profile'),
 ]

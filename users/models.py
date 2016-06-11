@@ -3,5 +3,7 @@ from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
-class ChatUser(models.Model):
-	user = models.OneToOneField(User, on_delete=models.CASCADE)
+class UserProfile(models.Model):
+    user = models.ForeignKey(User, models.SET_NULL, null=True)
+    bio = models.TextField('User Bio', blank=True, null=True)
+    gravatar_username = models.CharField('Gravatr Username', max_length=50)
