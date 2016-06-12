@@ -97,6 +97,17 @@ def update_profile(request):
 				'user': user
 			}
 			return render(request, 'users/update_profile.html', context)
+		else:
+			form = UserProfileForm(request.POST)
+			if form.is_valid():
+				user = User.objects.get(username=request.user)
+				profile = UserProfile.objects.get(user=user)
+				profile.gravatar_email = form.cleaned_data['gravatar_email']
+				profile.bio = form.cleaned_data['bio']
+				profile.save()
+				return redirect('/profile/')
+			else:
+				print(form.errors)
 	else:
 		print('No user is logged in.')
 

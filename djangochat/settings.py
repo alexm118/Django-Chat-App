@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'hello',
     'users',
     'djangochat',
+    'django_gravatar',
 
     'django.contrib.admin',
     'django.contrib.auth',

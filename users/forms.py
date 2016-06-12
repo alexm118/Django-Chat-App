@@ -13,4 +13,4 @@ class UserForm(ModelForm):
 class UserProfileForm(ModelForm):
     class Meta:
         model = UserProfile
-        fields = ('bio', 'gravatar_username')
+        fields = ('bio', 'gravatar_email')

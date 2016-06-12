@@ -6,4 +6,4 @@ from django.db import models
 class UserProfile(models.Model):
     user = models.ForeignKey(User, models.SET_NULL, null=True)
     bio = models.TextField('User Bio', blank=True, null=True)
-    gravatar_username = models.CharField('Gravatr Username', max_length=50)
+    gravatar_email = models.EmailField('Gravatr Email')
