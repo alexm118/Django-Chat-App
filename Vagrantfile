@@ -12,12 +12,13 @@ Vagrant.configure(2) do |config|
   
   config.vm.provision "shell", inline: <<-SHELL
     sudo apt-get update
-    sudo apt-get install -y python-pip python-dev
+    sudo apt-get install -y python-pip python-dev redis-server
     sudo pip install virtualenv
     cd /vagrant
     virtualenv env --always-copy
     source env/bin/activate
     pip install -r requirements/vm.txt
+    sudo redis-server /etc/redis/redis.conf
 
     echo 'cd \\vagrant' >> ~/.bashrc
     echo 'source env/bin/activate' >> ~/.bashrc
