@@ -80,22 +80,18 @@ WSGI_APPLICATION = 'djangochat.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
 import dj_database_url
 
-DATABASES = {}
-DATABASES['default'] = dj_database_url.config()
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-ALLOWED_HOSTS = ['*']
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 DEBUG = True
 
-try:
-    from .local import *
-except ImportError:
-    pass
 
 
 # Password validation
@@ -122,7 +118,7 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "asgi_redis.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [('localhost', 6379)],
+            "hosts": [("localhost", 6379)],
         },
         "ROUTING": "chat.routing.channel_routing",
     },

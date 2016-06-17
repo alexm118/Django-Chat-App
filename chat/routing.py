@@ -1,7 +1,8 @@
-from . import consumers
+from channels.routing import route
+from chat.consumers import ws_message, ws_connect, ws_disconnect
 
-channel_routing = {
-    'websocket.connect': consumers.ws_connect,
-    'websocket.receive': consumers.ws_receive,
-    'websocket.disconnect': consumers.ws_disconnect,
-}
+channel_routing = [
+    route('websocket.receive', ws_message),
+    route('websocket.connect', ws_connect),
+    route('websocket.disconnect', ws_disconnect),
+]

@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^profile/update/', update_profile, name='update_profile' ),
     url(r'^profile/', profile, name='profile'),
+    url(r'^chat/', include('chat.urls')),
 ]

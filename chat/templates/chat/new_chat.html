@@ -1,0 +1,21 @@
+{%  extends 'base.html' %}
+
+{%  block content %}
+    <h2>Create a new room</h2>
+    <form method="POST">
+        {%  csrf_token %}
+        <div class="row">
+            <div class="col s4">
+                Room Name: {{ form.name }} {{  form.name.errors }}
+            </div>
+            <div class="col s4">
+                Room Slug: {{  form.label }} {{ form.label.errors }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s3 offset-s2">
+                <button type="submit" class="btn pink darken-1">Create Room</button>
+            </div>
+        </div>
+    </form>
+{%  endblock %}
