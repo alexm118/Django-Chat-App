@@ -2,5 +2,8 @@ Django==1.9.7
 gunicorn==19.6.0
 requests==2.9.1
 psycopg2==2.5.4
-django-gravatar
+django-gravatar2
 dj_database_url
+channels
+asgi-redis
+daphne
